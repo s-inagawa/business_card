@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @name_card.name %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @name_card.address %>
+</p>
+
+<p>
+  <strong>Tel:</strong>
+  <%= @name_card.tel %>
+</p>
+
+<p>
+  <strong>Fax:</strong>
+  <%= @name_card.fax %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @name_card.url %>
+</p>
+
+<%= link_to 'Edit', edit_name_card_path(@name_card) %> |
+<%= link_to 'Back', name_cards_path %>

@@ -1,0 +1,35 @@
+<h1>Listing name_cards</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Tel</th>
+      <th>Fax</th>
+      <th>Url</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @name_cards.each do |name_card| %>
+      <tr>
+        <td><%= name_card.name %></td>
+        <td><%= name_card.address %></td>
+        <td><%= name_card.tel %></td>
+        <td><%= name_card.fax %></td>
+        <td><%= name_card.url %></td>
+        <td>
+          <%= link_to 'Show', name_card %><br />
+          <%= link_to 'Edit', edit_name_card_path(name_card) %><br />
+          <%= link_to 'Destroy', name_card, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New name_card', new_name_card_path %>
