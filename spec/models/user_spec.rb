@@ -106,9 +106,10 @@ describe User do
       its(:valid?){ should be_false }
     end
 
-    context '入力値=6文字未満の場合、異常' do
-      subject{ build(:user_1, mail: 'a@a.j') }
-      its(:valid?){ should be_true }
+    context '重複したメールアドレスを登録しようとした場合、異常' do
+      let(:user){ create(:user_1)}
+      subject{ build(:user_1, mail: user.mail) }
+      its(:valid?){ should be_false }
     end
   end
 end

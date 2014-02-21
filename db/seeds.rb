@@ -21,7 +21,7 @@ create_company_count.times do |count|
     address: "会社住所その#{count + 1}",
     tel: "0120-333-906#{count}",
     fax: "0120-117-117#{count}",
-    url: "http://example.com/company#{count + 1}"
+    url: "http://example.com/company#{count + 1}.com"
   )
 end
 
