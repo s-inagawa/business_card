@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :company_1, class: "Company" do
-    name    "テスト"
+    name     "テスト"
     address  "東京都台東区駒形バンダイのがんぐだい"
     tel      "00-000-0000"
     fax      "11-1111-1111"

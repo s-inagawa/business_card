@@ -130,13 +130,23 @@ describe Company do
   end
 
   describe :url do
+    context 'httpの場合、正常' do
+      subject{ build(:company_1, url: 'https://' + 'a' + '.co.jp') }
+      its(:valid?){ should be_true}
+    end
+
+    context 'httpsの場合、正常' do
+      subject{ build(:company_1, url: 'https://' + 'a' + '.co.jp') }
+      its(:valid?){ should be_true}
+    end
+
     context '入力値=MAXの場合、正常' do
-      subject{ build(:company_1, url: 'http://' + ('a' * 88) + '.co.jp') }
+      subject{ build(:company_1, url: 'http://' + ('a' * 87) + '.co.jp') }
       its(:valid?){ should be_true }
     end
 
     context '入力値=MAX+1の場合、異常' do
-      subject{ build(:company_1, url: 'http://.co.jp' * ( + 1)) }
+      subject{ build(:company_1, url: 'http://' + ('a' * 88) + '.co.jp') }
       its(:valid?){ should be_false }
     end
 
@@ -150,5 +160,4 @@ describe Company do
       its(:valid?){ should be_false }
     end
   end
-
 end
