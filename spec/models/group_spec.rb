@@ -5,7 +5,7 @@ describe Group do
 
   describe :name do
     context '入力値=MAXの場合、正常' do
-      subject{ build(:group_1) }
+      subject{ build(:group_1, name: 'あ' * 30) }
       its(:valid?){ should be_true }
     end
 

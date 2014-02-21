@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Company do
   describe :name do
     context '入力値=MAXの場合、正常' do
-      subject{ build(:company_1) }
+      subject{ build(:company_1, name: 'あ' * 100) }
       its(:valid?){ should be_true }
     end
 
@@ -20,12 +20,12 @@ describe Company do
 
   describe :address do
     context '入力値=MAXの場合、正常' do
-      subject{ build(:company_1) }
+      subject{ build(:company_1, address: 'あ' * 10000) }
       its(:valid?){ should be_true }
     end
 
     context '入力値=MAX+1の場合、異常' do
-      subject{ build(:company_1, address: 'あ' * (AVAILABLE_TEXT_LENGTH + 1)) }
+      subject{ build(:company_1, address: 'あ' * (10000 + 1)) }
       its(:valid?){ should be_false }
     end
 
@@ -36,12 +36,7 @@ describe Company do
   end
 
   describe :tel do
-    context '入力値=MAXの場合、正常' do
-      subject{ build(:company_1) }
-      its(:valid?){ should be_true }
-    end
-
-    context 'フォーマットエラー(0-0-0)の場合、異常' do
+    context 'フォーマットエラー(0)の場合、異常' do
       subject{ build(:company_1, tel: '0' )}
       its(:valid?){ should be_false }
     end
@@ -88,12 +83,7 @@ describe Company do
   end
 
   describe :fax do
-    context '入力値=MAXの場合、正常' do
-      subject{ build(:company_1) }
-      its(:valid?){ should be_true }
-    end
-
-    context 'フォーマットエラー(0-0-0)の場合、異常' do
+    context 'フォーマットエラー(0)の場合、異常' do
       subject{ build(:company_1, fax: '0')}
       its(:valid?){ should be_false }
     end
