@@ -1,4 +1,4 @@
-<%= form_for(@name_card) do |f| %>
+<%= form_for([@company, @group, @user, @name_card]) do |f| %>
   <% if @name_card.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@name_card.errors.count, "error") %> prohibited this name_card from being saved:</h2>

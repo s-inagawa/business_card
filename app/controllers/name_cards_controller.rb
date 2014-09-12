@@ -1,22 +1,23 @@
 class NameCardsController < ApplicationController
+  before_action :set_company, :set_group, :set_user
   before_action :set_name_card, only: [:show, :edit, :update, :destroy]
 
   def index
-    @name_cards = NameCard.all
+    @name_cards = @user.name_cards
   end
 
   def show
   end
 
   def new
-    @name_card = NameCard.new
+    @name_card = @user.name_cards.new
   end
 
   def create
-    @name_card = NameCard.new(name_card_params)
+    @name_card = @user.name_cards.new(name_card_params)
 
     if @name_card.save
-      redirect_to @name_card, notice: 'NameCard was successfully created.'
+      redirect_to [@company, @group, @user, @name_card], notice: 'NameCard was successfully created.'
     else
       render action: 'new'
     end
@@ -27,7 +28,7 @@ class NameCardsController < ApplicationController
 
   def update
     if @name_card.update(name_card_params)
-      redirect_to @name_card, notice: 'NameCard was successfully updated.'
+      redirect_to [@company, @group, @user, @name_card], notice: 'NameCard was successfully updated.'
     else
       render action: 'edit'
     end
@@ -35,13 +36,13 @@ class NameCardsController < ApplicationController
 
   def destroy
     @name_card.destroy
-    redirect_to name_cards_url
+    redirect_to company_group_user_name_cards_path
   end
 
   private
 
   def set_name_card
-    @name_card = NameCard.find(parmas[:id])
+    @name_card = @user.name_cards.find(params[:id])
   end
 
   def name_card_params

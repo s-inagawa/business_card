@@ -6,5 +6,6 @@
 </p>
 
 
-<%= link_to 'Edit', edit_group_path(@group) %> |
-<%= link_to 'Back', groups_path %>
+<%= link_to 'Edit', edit_company_group_path(@company, @group) %> |
+<%= link_to 'Users', company_group_users_path(@company, @group) %> |
+<%= link_to 'Back', company_groups_path(@company) %>

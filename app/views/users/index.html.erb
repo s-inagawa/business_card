@@ -17,9 +17,9 @@
         <td><%= user.mail %></td>
         <td><%= user.tel %></td>
         <td>
-          <%= link_to 'Show', user %><br />
-          <%= link_to 'Edit', edit_user_path(user) %><br />
-          <%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to 'Show', company_group_user_path(@company, @group, user) %><br />
+          <%= link_to 'Edit', edit_company_group_user_path(@company, @group, user) %><br />
+          <%= link_to 'Destroy', company_group_user_path(@company, @group, user), method: :delete, data: { confirm: 'Are you sure?' } %>
         </td>
       </tr>
     <% end %>
@@ -28,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New User', new_user_path %>
+<%= link_to 'New User', new_company_group_user_path(@company, @group) %>

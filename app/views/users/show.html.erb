@@ -15,5 +15,6 @@
   <%= @user.tel %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= link_to 'Edit', edit_company_group_user_path(@company, @group, @user) %> |
+<%= link_to 'NameCard', company_group_user_name_cards_path(@company, @group, @user) %> |
+<%= link_to 'Back', company_group_users_path(@company, @group) %>
