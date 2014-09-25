@@ -71,8 +71,8 @@ describe User do
       its(:valid?){ should be_true }
     end
 
-    context '入力値=6文字未満の場合、異常' do
-      subject{ build(:user_1, mail: 'a@a.j') }
+    context '入力値=6文字の場合、正常' do
+      subject{ build(:user_1, mail: 'a@a.js') }
       its(:valid?){ should be_true }
     end
 
@@ -88,6 +88,11 @@ describe User do
 
     context 'ドメインがない場合、異常' do
       subject{ build(:user_1, mail: '@example.com') }
+      its(:valid?){ should be_false }
+    end
+
+    context '入力値=6文字未満の場合、異常' do
+      subject{ build(:user_1, mail: 'a@a.j') }
       its(:valid?){ should be_false }
     end
 
