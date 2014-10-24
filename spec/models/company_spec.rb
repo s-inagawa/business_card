@@ -78,7 +78,7 @@ describe Company do
 
     context '入力値=nilの場合、正常' do
       subject{ build(:company_1, tel: nil) }
-      its(:valid?){ should be_false }
+      its(:valid?){ should be_true }
     end
   end
 
@@ -125,7 +125,7 @@ describe Company do
 
     context '入力値=nilの場合、正常' do
       subject{ build(:company_1, fax: nil) }
-      its(:valid?){ should be_false }
+      its(:valid?){ should be_true }
     end
   end
 
@@ -152,12 +152,12 @@ describe Company do
 
     context '入力値=空文字の場合、正常' do
       subject{ build(:company_1, url: " ") }
-      its(:valid?){ should be_false }
+      its(:valid?){ should be_true }
     end
 
     context '入力値=nilの場合、正常' do
       subject{ build(:company_1, url: nil) }
-      its(:valid?){ should be_false }
+      its(:valid?){ should be_true }
     end
   end
 end
